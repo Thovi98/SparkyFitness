@@ -35,7 +35,7 @@ jobs:
 
       # ---------- BACKEND ----------
       - name: Build backend
-        run:.pnpm --filter sparkyfitnessserver deploy --prod --legacy ./deploy
+        run: pnpm --filter sparkyfitnessserver deploy --prod --legacy ./deploy
 
       # ---------- PACKAGE ----------
       - name: Prepare release folder
