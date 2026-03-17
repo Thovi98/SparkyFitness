@@ -34,28 +34,21 @@ jobs:
         run: pnpm --filter sparkyfitnessfrontend run build
 
       # ---------- BACKEND ----------
-      - name: Build backend deploy
-        run: pnpm --filter sparkyfitnessserver deploy --legacy ./deploy
+      - name: Build backend
+        run: pnpm --filter sparkyfitnessbackend run build
 
       # ---------- PACKAGE ----------
       - name: Prepare release folder
         run: |
           mkdir -p release/frontend
           mkdir -p release/backend
-
-          # frontend (production build)
-          cp -r SparkyFitnessFrontend/dist release/frontend/
-
-          # backend (clean deploy like Docker)
-          cp -r deploy/* release/backend/
-
-          # env + infra
-          cp docker/.env.example release/
+          
+          cp -r SparkyFitnessFrontend/dist/* release/frontend/
+          cp -r SparkyFitnessServer/dist/* release/backend/
 
       # ---------- COMPRESS ----------
       - name: Compress release
         run: tar -czvf SparkyFitness.tar.gz release/
-
 
       - name: Upload Release Assets
         uses: softprops/action-gh-release@v2
