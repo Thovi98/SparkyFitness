@@ -44,7 +44,7 @@ jobs:
           mkdir -p release/backend
           
           cp -r SparkyFitnessFrontend/dist/* release/frontend/
-          cp -r SparkyFitnessServer/dist/* release/backend/
+          cp -r SparkyFitnessServer/* release/backend/
 
       # ---------- COMPRESS ----------
       - name: Compress release
