@@ -35,7 +35,7 @@ jobs:
 
       - name: Compress Frontend Dist
         working-directory: ./SparkyFitnessFrontend
-        run: tar -czvf sparkyfitness-frontend-dist.tar.gz dist/
+        run: tar -czvf sparkyfitness-frontend-dist.tar.gz . --exclude='./node_modules/.cache'
 
       - name: Upload Release Assets
         uses: softprops/action-gh-release@v2
