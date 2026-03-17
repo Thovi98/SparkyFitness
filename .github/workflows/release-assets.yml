@@ -35,7 +35,7 @@ jobs:
 
       # ---------- BACKEND ----------
       - name: Build backend
-        run: pnpm --filter sparkyfitnessbackend run build
+        run: pnpm --filter sparkyfitnessserver deploy --prod ./deploy
 
       # ---------- PACKAGE ----------
       - name: Prepare release folder
@@ -44,7 +44,7 @@ jobs:
           mkdir -p release/backend
           
           cp -r SparkyFitnessFrontend/dist/* release/frontend/
-          cp -r SparkyFitnessServer/* release/backend/
+          cp -r deploy/* release/backend/
 
       # ---------- COMPRESS ----------
       - name: Compress release
